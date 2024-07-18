@@ -1,0 +1,22 @@
+ZSH_DIR=$(dirname $(readlink -f $HOME/.zshrc))
+PRELOAD_CONFIG_DIR=${ZSH_DIR}/preload
+ZSH_MODULES=${ZSH_DIR}/modules
+
+local BASE_DIR=("$PRELOAD_CONFIG_DIR" "$ZSH_MODULES")
+
+local OS_SPEC_DIR=("common" "$OSTYPE")
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    OS_SPEC_DIR+=("linux")
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    OS_SPEC_DIR+=("macos")
+fi
+
+for base_dir in $BASE_DIR; do
+    local dir=$base_dir/$f
+    if [ -d "$dir" ]; then
+	for i in $(find $dir -name \*.zsh); do
+	    source "$i"
+	done
+    fi
+done
