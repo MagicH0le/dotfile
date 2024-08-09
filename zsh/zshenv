@@ -1,0 +1,35 @@
+# Color
+export CLICOLOR=1
+
+# XDG
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+export XDG_STATE_HOME=${XDG_DATA_HOME:-$HOME/.local/state}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+
+# Editor
+export VISUAL=nvim
+export EDITOR=$VISUAL
+
+# Zsh
+export ZSH=$XDG_CONFIG_HOME/zsh
+
+# History
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=1000
+
+# macOS
+if [ $(uname) = Darwin ]; then
+    export LSCOLORS=exfxcxdxbxegedabagacad
+    # Homebrew
+    export HOMEBREW_NO_ENV_HINTS=1
+fi
+
+# Python
+if command -v pyenv >/dev/null 2>&1; then
+    export PYENV_ROOT=$HOME/.pyenv
+    export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV=true
+    export PATH=$PATH:$PYENV_ROOT/bin
+    export WORKON_HOME=$HOME/.virtualenvs
+fi

@@ -1,0 +1,14 @@
+# System special
+if [ $(uname -s) = Darwin ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
+fi
+
+# Direnv
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
+
+# Python
+if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+    pyenv virtualenvwrapper_lazy
+fi
