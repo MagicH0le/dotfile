@@ -37,6 +37,11 @@ tree-sitter-lua = "scm"
 tree-sitter-toml = "scm"
 tree-sitter-gitcommit = "scm"
 tree-sitter-git_rebase = "scm"
+tree-sitter-scheme = "scm"
+tree-sitter-racket = "scm"
+tree-sitter-ruby = "scm"
+tree-sitter-diff = "scm"
+tree-sitter-haskell = "scm"
 
 # Dracula themes
 [plugins."dracula.nvim"]
@@ -44,6 +49,9 @@ git = "Mofiqul/dracula.nvim"
 
 [plugins."mini.git"]
 git = "echasnovski/mini-git"
+
+[plugins."vim-racket"]
+git = "benknoble/vim-racket"
 
 [treesitter]
 auto_highlight = "all"

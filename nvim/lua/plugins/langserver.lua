@@ -21,7 +21,9 @@ end
 
 mlsp_options = {
     ensure_installed = {
-        "lua_ls"
+        "lua_ls",
+        "ruby_lsp",
+        "hls"
     }
 }
 mlsp.setup(mlsp_options)
@@ -51,5 +53,11 @@ mlsp.setup_handlers({
                 }
             }
         })
+    end,
+    ["hls"] = function()
+        on_attach = on_attach
+    end,
+    ["ruby_lsp"] = function()
+        on_attach = on_attach
     end
 })
