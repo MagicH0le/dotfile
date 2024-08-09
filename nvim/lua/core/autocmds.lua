@@ -36,8 +36,3 @@ autocmd("BufEnter", {
     command = "set fo-=c fo-=r fo-=o"
 })
 
--- Format on save
--- autocmd("BufWritePre", {
---     pattern = "",
---     command = ":silent lua vim.lsp.buf.format()"
--- })
