@@ -1,0 +1,4 @@
+# Change /etc/hosts
+if [ $(uname) = Darwin ]; then
+    alias chresolv="sudo vim /etc/hosts && dscacheutil -flushcache"
+fi

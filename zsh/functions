@@ -1,0 +1,17 @@
+if command -v nmap >/dev/null 2>&1; then
+    function scan() {
+        sudo nmap -sSV -n -vv -F $1
+    }
+fi
+
+function set_proxy() {
+    export http_proxy=http://127.0.0.1:7890
+    export https_proxy=http://127.0.0.1:7890
+    export all_proxy=socks5://127.0.0.1:7890
+}
+
+function unset_proxy() {
+    unset all_proxy
+    unset http_proxy
+    unset https_proxy
+}

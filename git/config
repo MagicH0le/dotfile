@@ -1,0 +1,8 @@
+[user]
+	name = c4droid
+	email = c4droid@foxmail.com
+	signingkey = 3AE4B95DC3F8D6D7B6899365A4510497FE3BB2EA
+[commit]
+	gpgsign = true
+[url "github:"]
+	insteadOf = https://github.com/
