@@ -79,4 +79,13 @@ package.  This macro is not repeatable."
 		           (if (consp recipe)
 		               (car recipe)
 		             recipe)))))
+
+(with-eval-after-load 'general
+  (setup-define :general
+    (lambda (&rest definitions)
+      (let (expansions)
+        (dolist (definition definitions)
+          (push `(general-define-key ,@definition) expansions))
+        (macroexp-progn (nreverse expansions))))
+    :documentation "Configure keybindings using general."))
 (provide 'site-setup)

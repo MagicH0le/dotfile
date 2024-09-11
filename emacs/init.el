@@ -4,6 +4,8 @@
 (require 'site-bootstrap)
 (require 'site-setup)
 
+(require 'init-evil)
+
 (require 'init-performance)
 
 (require 'init-interface)
