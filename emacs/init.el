@@ -10,6 +10,7 @@
 
 (require 'init-interface)
 (require 'init-editing)
+(require 'init-buffer)
 (require 'init-minibuffer)
 (require 'init-time)
 (require 'init-international)
