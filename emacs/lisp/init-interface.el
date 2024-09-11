@@ -1,10 +1,4 @@
 ;; -*- lexical-binding: t -*-
-(setup (:straight dashboard)
-  (:option inhibit-startup-screen t
-	       initial-buffer-choice (lambda ()
-				                   (get-buffer-create dashboard-buffer-name)))
-  (dashboard-setup-startup-hook))
-
 (setup (:straight helpful)
   (:bind "C-h f" helpful-callable
 	     "C-h v" helpful-variable
