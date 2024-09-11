@@ -7,7 +7,7 @@
 	       org-refile-use-outline-path nil
 	       org-refile-targets '((org-agenda-files :maxlevel . 9))
 	       org-outline-path-complete-in-steps nil
-	       org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d)"))
+	       org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d)" "CANCELED(c)"))
 	       org-log-done 'time
 	       org-agenda-custom-commands    '(("g" "GTD"
 					                        ((agenda ""
