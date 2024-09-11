@@ -9,19 +9,19 @@
   (lambda (&rest features)
     (let ((body `(require ',(setup-get 'feature))))
       (dolist (feature (nreverse features))
-	(setq body `(with-eval-after-load ',feature ,body)))
+	    (setq body `(with-eval-after-load ',feature ,body)))
       body))
   :documentation "Load the current feature after FEATURES.")
 
 (setup-define :hide-mode
   (lambda (&optional mode)
     (let* ((mode (or mode (setup-get 'mode)))
-	   (mode (if (string-match-p "-mode\\'" (symbol-name mode))
-		     mode
-		   (intern (format "%s-mode" mode)))))
+	       (mode (if (string-match-p "-mode\\'" (symbol-name mode))
+		             mode
+		           (intern (format "%s-mode" mode)))))
       `(setq minor-mode-alist
-	     (delq (assq ',mode minor-mode-alist)
-		   minor-mode-alist))))
+	         (delq (assq ',mode minor-mode-alist)
+		           minor-mode-alist))))
   :documentation "Hide the mode-line lighter of the current mode.
 Alternatively, MODE can be specified manually, and override the
 current mode."
@@ -50,23 +50,23 @@ current mode."
   (setup-define :straight
     (lambda (recipe)
       `(unless (straight-use-package ',recipe)
-	 ,(setup-quit)))
+	     ,(setup-quit)))
     :documentation
     "Install RECIPE with `straight-use-package'.
 This macro can be used as HEAD, and will replace itself with the
 first RECIPE's package."
     :repeatable t
     :shorthand (lambda (sexp)
-		 (let ((recipe (cadr sexp)))
-		   (if (consp recipe)
-		       (car recipe)
-		     recipe))))
+		         (let ((recipe (cadr sexp)))
+		           (if (consp recipe)
+		               (car recipe)
+		             recipe))))
 
   (setup-define :straight-when
     (lambda (recipe condition)
       `(if ,condition
-	   (straight-use-package ',recipe)
-	 ,(setup-quit)))
+	       (straight-use-package ',recipe)
+	     ,(setup-quit)))
     :documentation
     "Install RECIPE with `straight-use-package' when CONDITION is met.
 If CONDITION is false, stop evaluating the body.  This macro can
@@ -75,8 +75,8 @@ package.  This macro is not repeatable."
     :repeatable nil
     :indent 1
     :shorthand (lambda (sexp)
-		 (let ((recipe (cadr sexp)))
-		   (if (consp recipe)
-		       (car recipe)
-		     recipe)))))
+		         (let ((recipe (cadr sexp)))
+		           (if (consp recipe)
+		               (car recipe)
+		             recipe)))))
 (provide 'site-setup)
