@@ -12,6 +12,7 @@
 (require 'init-editing)
 (require 'init-buffer)
 (require 'init-minibuffer)
+(require 'init-dired)
 (require 'init-time)
 (require 'init-international)
 (require 'init-shell)
@@ -26,6 +27,7 @@
 (require 'init-clang)
 (require 'init-python)
 (require 'init-web)
+(require 'init-lua)
 
 (require 'init-chat)
 
