@@ -53,6 +53,7 @@
 
 ;; Shell
 (require 'init-shell)
+(require 'init-eshell)
 
 ;; Fuzzy matching
 (require 'init-flx)
