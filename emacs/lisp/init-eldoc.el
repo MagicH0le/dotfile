@@ -5,4 +5,4 @@
 (setup (:straight eldoc-box)
   (:with-mode eglot-managed-mode
     (:hook eldoc-box-hover-mode)))
-(provide 'init-programming)
+(provide 'init-eldoc)

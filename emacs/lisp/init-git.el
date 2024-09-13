@@ -9,7 +9,7 @@
             "gb" '(magit-branch :which-key "Show all branches")
             "gco" '(magit-checkout :which-key "Checkout branch")
             "gr" '(magit-rebase :which-key "Rebase on a branch")
-            "gsq" '(magit-rebase-squash :which-key "Squash commits")
+            "gq" '(magit-rebase-squash :which-key "Squash commits")
             "gc" '(magit-commit :which-key "Commit")
             "gp" '(magit-push-popup :which-key "Push"))))
 (provide 'init-git)

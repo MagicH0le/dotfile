@@ -5,4 +5,4 @@
 
 (setup (:straight tempel-collection)
   (:load-after tempel))
-(provide 'init-snippet)
+(provide 'init-tempel)

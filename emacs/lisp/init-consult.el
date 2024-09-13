@@ -1,54 +1,4 @@
 ;; -*- lexical-binding: t -*-
-(setup (:straight vertico)
-  (:option vertico-cycle t)
-  (vertico-mode))
-
-(setup vertico-repeat
-  (:load-after vertico)
-  (:hooks minibuffer-setup-hook vertico-repeat-save))
-
-(setup vertico-directory
-  (:load-after vertico)
-  (:with-map vertico-map
-    (:bind "<backspace>" vertico-directory-delete-char)))
-
-(setup vertico-buffer
-  (:option vertico-buffer-display-action '(display-buffer-at-bottom))
-  (vertico-buffer-mode))
-
-(setup (:straight (vertico-truncate :type git :host github :repo "jdtsmith/vertico-truncate"))
-  (:require vertico-truncate)
-  (vertico-truncate-mode))
-
-(setup (:straight orderless)
-  (:option completion-styles '(orderless basic)
-	       completion-category-defaults nil
-	       completion-category-overrides nil)
-  (:after corfu
-    (:require orderless)
-    (defun orderless-fast-dispatch (word index total)
-      (and (= index 0) (= total 1) (length< word 4)
-	       'orderless-literal-prefix))
-    (orderless-define-completion-style orderless-fast
-      (orderless-style-dispatchers '(orderless-fast-dispatch))
-      (orderless-matching-styles '(orderless-flex)))
-    (defun setup-corfu-for-orderless ()
-      (setq-local corfu-auto-delay 0
-		          corfu-auto-prefix 1
-		          completion-styles '(orderless-fast)))
-    (:with-mode corfu-mode
-      (:hook setup-corfu-for-orderless))))
-
-(setup (:straight prescient)
-  (:require prescient)
-  (:option prescient-aggressive-file-save t)
-  (prescient-persist-mode))
-
-(setup (:straight vertico-prescient)
-  (:load-after prescient vertico)
-  (:option vertico-prescient-enable-filtering nil)
-  (vertico-prescient-mode))
-
 (setup (:straight consult)
   (:require consult)
   (:option register-preview-delay 0.5
@@ -112,18 +62,4 @@
     (consult-ripgrep default-directory))
   (:with-map search-map
     (:bind "R" consult-ripgrep-current-directory)))
-
-(setup (:straight marginalia)
-  (marginalia-mode))
-
-(setup (:straight embark)
-  (:option prefix-help-command #'embark-prefix-help-command)
-  (:global "C-." embark-act
-	       "C-;" embark-dwim
-	       "C-h B" embark-bindings))
-
-(setup (:straight embark-consult)
-  (:load-after consult embark)
-  (:with-mode embark-collect-mode
-    (:hook consult-preview-at-point-mode)))
-(provide 'init-minibuffer)
+(provide 'init-consult)

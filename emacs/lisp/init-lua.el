@@ -6,5 +6,5 @@
   (defun lua-at-most-one-indent (old-function &rest arguments)
     (let ((old-res (apply old-function arguments)))
       (if (> old-res lua-indent-level) lua-indent-level old-res)))
-  (advice-add #'lua-calculate-indentation-block-modifier :around #'lua-at-most-one-indent))
+  (:advice lua-calculate-indentation-block-modifier :around #'lua-at-most-one-indent))
 (provide 'init-lua)

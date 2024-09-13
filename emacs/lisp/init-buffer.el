@@ -2,6 +2,8 @@
 (setup buffer
   (:general
    (:states '(normal)
+            :keymaps 'override
+            :prefix "SPC"
             "b" '(:ignore t :which-key "Buffers")
             "bs" '(:ignore t :which-key "Split")
             "bsv" '(split-right :which-key "Vertical")

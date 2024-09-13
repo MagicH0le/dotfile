@@ -26,7 +26,4 @@
   (:load-after evil-mode)
   (:hide-mode evil-mc-mode)
   (global-evil-mc-mode))
-
-(setup (:straight general)
-  (general-auto-unbind-keys))
 (provide 'init-evil)

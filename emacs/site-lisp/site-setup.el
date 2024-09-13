@@ -1,10 +1,16 @@
+;; Declare setup
 (straight-use-package 'setup)
 (require 'setup)
+
+;; Show error message when configuration have problem
 (add-to-list 'setup-modifier-list 'setup-wrap-to-demote-errors)
+
+;; Quit
 (setup-define :quit
   #'setup-quit
   :documentation "Unconditionally abort the evaluation of the current body.")
 
+;; use-package `:after' keyword
 (setup-define :load-after
   (lambda (&rest features)
     (let ((body `(require ',(setup-get 'feature))))
@@ -13,6 +19,7 @@
       body))
   :documentation "Load the current feature after FEATURES.")
 
+;; Hide minor mode indicator
 (setup-define :hide-mode
   (lambda (&optional mode)
     (let* ((mode (or mode (setup-get 'mode)))
@@ -27,12 +34,14 @@ Alternatively, MODE can be specified manually, and override the
 current mode."
   :after-loaded t)
 
+;; `add-hook' wrapper
 (setup-define :hooks
   (lambda (hook func)
     `(add-hook ',hook #',func))
   :documentation "Add pairs of hooks."
   :repeatable t)
 
+;; Eval body after load feature
 (setup-define :after
   (lambda (feature &rest body)
     `(:with-feature ,feature
@@ -40,12 +49,23 @@ current mode."
   :documentation "Eval BODY after FEATURE."
   :indent 1)
 
+;; `unless' wrapper
 (setup-define :unless
   (lambda (condition &rest body)
     `(unless ,condition ,@body))
   :documentation "Evaluates BODY unless the condition evaluates to `t'."
   :indent 1)
 
+;; `advice-add' wrapper
+(setup-define :advice
+  (lambda (symbol where function)
+    `(advice-add ',symbol ,where ,function))
+  :documentation "Add a piece of advice on a function."
+  :debug '(sexp sexp function-form)
+  :ensure '(nil nil func)
+  :repeatable t)
+
+;; straight.el
 (with-eval-after-load 'straight
   (setup-define :straight
     (lambda (recipe)
@@ -80,6 +100,7 @@ package.  This macro is not repeatable."
 		               (car recipe)
 		             recipe)))))
 
+;; general.el
 (with-eval-after-load 'general
   (setup-define :general
     (lambda (&rest definitions)

@@ -26,6 +26,6 @@
   (eglot-x-setup))
 
 (setup (:straight eglot-signature-eldoc-talkative)
-  (:load-after eldoc-box)
-  (advice-add #'eglot-signature-eldoc-function :override #'eglot-signature-eldoc-talkative))
-(provide 'init-lsp)
+  (:load-after eldoc-box eglot)
+  (:advice eglot-signature-eldoc-function :override #'eglot-signature-eldoc-talkative))
+(provide 'init-eglot)

@@ -20,11 +20,4 @@
 (setup number
   (line-number-mode)
   (column-number-mode))
-
-(setup (:straight rainbow-delimiters)
-  (:hook-into prog-mode))
-
-(setup (:straight paredit)
-  (:hide-mode paredit-mode)
-  (:hook-into emacs-lisp-mode lisp-mode scheme-mode ielm-mode lisp-interaction-mode))
 (provide 'init-editing)
