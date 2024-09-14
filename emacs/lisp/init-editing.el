@@ -6,7 +6,8 @@
   (:option kill-whole-line t
 	       indent-tabs-mode nil
 	       tab-width 4
-	       use-short-answers t))
+	       use-short-answers t
+           truncate-lines t))
 
 (setup autorevert
   (:option auto-revert-avoid-polling t

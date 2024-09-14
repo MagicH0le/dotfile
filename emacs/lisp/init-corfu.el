@@ -13,15 +13,7 @@
     (:bind "TAB" corfu-next
 	       "<tab>" corfu-next
 	       "S-TAB" corfu-previous
-	       "<backtab>" corfu-previous))
-
-  (defun corfu-enable-always-in-minibuffer ()
-    "Enable Corfu in the minibuffer if Vertico are not active."
-    (unless (bound-and-true-p vertico--input)
-      (setq-local corfu-echo-delay nil
-		          corfu-popupinfo-delay nil)
-      (corfu-mode 1)))
-  (:hooks minibuffer-setup-hook corfu-enable-always-in-minibuffer))
+	       "<backtab>" corfu-previous)))
 
 (setup corfu-popupinfo
   (:load-after corfu)
