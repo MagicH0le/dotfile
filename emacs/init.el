@@ -84,6 +84,7 @@
 (require 'init-typescript)
 (require 'init-html)
 (require 'init-lua)
+(require 'init-mud)
 
 ;; Chating
 (require 'init-telega)
