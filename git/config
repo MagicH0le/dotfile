@@ -6,3 +6,5 @@
 	gpgsign = true
 [url "github:"]
 	insteadOf = https://github.com/
+[core]
+	editor = emacsclient -t
