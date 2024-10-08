@@ -40,3 +40,8 @@ if command -v python3 >/dev/null 2>&1; then
     export WORKON_HOME=$HOME/.virtualenvs
     export VIRTUALENVWRAPPER_PYTHON=$(command -v python3)
 fi
+
+# GnuPG
+if command -v gpg >/dev/null 2>&1; then
+    export GPG_TTY=$(tty)
+fi
